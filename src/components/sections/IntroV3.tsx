@@ -1,5 +1,6 @@
 import { BrandSlider } from "@/components/BrandSlider";
 import { ImageSwitch } from "@/components/ImageSwitch";
+import { profile } from "@/data/profile";
 
 export function IntroV3() {
   return (
@@ -9,22 +10,22 @@ export function IntroV3() {
           <img loading="lazy" width={23} height={31} src="/assets/images/avatar/avatar-boy.png" alt="avatar" />
         </div>
         <div className="author-info letter-space--05">
-          <p className="info_name text-black">Alexander Isak</p>
-          <p className="info_duty text-black-50 text-body-3">UI Designer & No-Code Developer</p>
+          <p className="info_name text-black">{profile.fullName}</p>
+          <p className="info_duty text-black-50 text-body-3">{profile.duty}</p>
         </div>
       </div>
 
       <h1 className="intro-title letter-space--2 ">
-        Start building <span>websites</span>
+        Designing <span>enterprise UX</span>
         <br />
-        people remember
+        people trust
       </h1>
 
       <div className="counter-image-item">
         <div className="box-counter">
           <div className="wg-counter">
             <p className="counter h1 d-flex font-2 letter-space--2 text-black-72">
-              <span className="number" data-speed="1000" data-to="10">
+              <span className="number" data-speed="1000" data-to="5">
                 0
               </span>
               +
@@ -33,12 +34,12 @@ export function IntroV3() {
           </div>
           <div className="wg-counter">
             <p className="counter h1 d-flex font-2 letter-space--2 text-black-72">
-              <span className="number" data-speed="1000" data-to="6">
+              <span className="number" data-speed="1000" data-to="75">
                 0
               </span>
-              x
+              %
             </p>
-            <p className="text text-black-56 text-body-3">Industry Awards</p>
+            <p className="text text-black-56 text-body-3">Repetitive Work Automated</p>
           </div>
         </div>
         <div className="image-item">
@@ -75,7 +76,7 @@ export function IntroV3() {
         </div>
       </div>
 
-      <p className="intro-client letter-space--05 text-body-3">Our clients (2015-25©)</p>
+      <p className="intro-client letter-space--05 text-body-3">Our clients (2018-26©)</p>
 
       <BrandSlider />
     </div>

@@ -8,13 +8,13 @@ export type TechItem = {
 export const techStack: TechItem[] = [
   {
     name: "Figma",
-    duty: "Leading design tool",
+    duty: "Leading design & prototyping tool",
     image: { light: "/assets/images/section/tech-1.svg", width: 19, height: 28 },
-    progress: 80,
+    progress: 95,
   },
   {
-    name: "Framer",
-    duty: "No-code website builder",
+    name: "Claude (Skills, Agents, MCP)",
+    duty: "AI-native design automation",
     image: {
       light: "/assets/images/section/tech-2.svg",
       dark: "/assets/images/section/tech-2_dark.svg",
@@ -24,9 +24,26 @@ export const techStack: TechItem[] = [
     progress: 90,
   },
   {
-    name: "Adobe Photoshop",
-    duty: "Raster graphics editor",
+    name: "FigJam",
+    duty: "Workshops, flows & IA mapping",
     image: { light: "/assets/images/section/tech-3.svg", width: 29, height: 28 },
-    progress: 60,
+    progress: 85,
+  },
+  {
+    name: "Adobe Photoshop",
+    duty: "Raster graphics & visual design",
+    image: { light: "/assets/images/section/tech-1.svg", width: 19, height: 28 },
+    progress: 80,
+  },
+  {
+    name: "Webflow",
+    duty: "Dev-aligned, no-code builds",
+    image: {
+      light: "/assets/images/section/tech-2.svg",
+      dark: "/assets/images/section/tech-2_dark.svg",
+      width: 18,
+      height: 28,
+    },
+    progress: 75,
   },
 ];

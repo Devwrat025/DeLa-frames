@@ -6,10 +6,10 @@ import SmoothScroll from "@/hooks/SmoothScroll";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-    title: "Isak - Personal Portfolio",
+    title: "Devwrat Pandey - Senior UI/UX Designer",
     description:
-        "Isak - Personal Portfolio is a sleek and modern Next.js template designed for developers, designers, freelancers, and professionals who want to showcase their work online.",
-    authors: [{ name: "themesflat.com" }],
+        "Devwrat Pandey is a Senior UI/UX Designer specializing in enterprise B2B, B2C, and SaaS products, AI-native design workflows, and scalable design systems.",
+    authors: [{ name: "Devwrat Pandey" }],
     icons: {
         icon: "/assets/images/logo/favicon.svg",
         apple: "/assets/images/logo/favicon.svg",

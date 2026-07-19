@@ -10,28 +10,28 @@ export type Service = {
 export const services: Service[] = [
   {
     id: "service-1",
-    title: "Web Design",
+    title: "Enterprise UX & Product Design",
     description:
-      "I design modern, responsive websites that balance creativity with usability, making sure your digital presence feels seamless and memorable.",
-    tags: ["Visual Design", "Interaction Design", "Responsive Layouts"],
+      "I own end-to-end UX for enterprise B2B, B2C, and SaaS products—from requirement analysis and information architecture through wireframes, high-fidelity UI, and usability testing.",
+    tags: ["Interaction Design", "Design Systems", "Usability Testing"],
     images: ["/assets/images/section/service-1.jpg", "/assets/images/section/service-2.jpg"],
     expanded: true,
   },
   {
     id: "service-2",
-    title: "No-Code Development",
+    title: "AI-Native Design Workflows",
     description:
-      "Build fast, scalable websites using tools like Framer and Webflow—helping you launch quickly with designs that are easy to edit and maintain.",
-    tags: ["Framer Builds", "Webflow Sites", "Scalable Launches"],
+      "I build Claude-powered design automation using custom Skills, Agents, and MCP integrations with Figma and Freepik—cutting design cycles from days to hours and eliminating repetitive production work.",
+    tags: ["Claude Skills & Agents", "Prompt Engineering", "Agentic UX"],
     images: ["/assets/images/section/service-3.jpg", "/assets/images/section/service-4.jpg"],
     expanded: false,
   },
   {
     id: "service-3",
-    title: "Brand Identity",
+    title: "Design Systems & Dev Handoff",
     description:
-      "I craft cohesive brand systems with logos, colors, and typography that reflect your values—making your business recognizable and trusted.",
-    tags: ["Logo Design", "Visual Systems", "Brand Guidelines"],
+      "I craft scalable component libraries and design tokens, and partner closely with engineering for zero-friction, API-aware handoff across RBAC and multi-persona platforms.",
+    tags: ["Design Tokens", "Component Libraries", "Dev Handoff"],
     images: ["/assets/images/section/service-5.jpg", "/assets/images/section/service-6.jpg"],
     expanded: false,
   },

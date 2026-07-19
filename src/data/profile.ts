@@ -1,12 +1,12 @@
 export const profile = {
-  fullName: "Alexander Isak",
-  shortName: "Isak",
-  duty: "UI Designer & No-Code Developer",
-  introBio: "I help startups grow with smart design and no-code development, based in Cupertino, CA.",
-  email: "hello@isak.design",
-  rotatingNames: ["Isak", "Designer", "Developer"],
+  fullName: "Devwrat Pandey",
+  shortName: "Devwrat",
+  duty: "Senior UI/UX Designer & AI-Native Design",
+  introBio:
+    "I design enterprise B2B/B2C products and build AI-native UX workflows, based in Pune, India.",
+  email: "devpan98459@gmail.com",
+  rotatingNames: ["Devwrat", "Designer", "UX Strategist"],
   socials: [
-    { icon: "icon-x", href: "#", label: "X" },
     { icon: "icon-linkin", href: "#", label: "LinkedIn" },
   ],
 } as const;

@@ -8,16 +8,16 @@ export function About() {
         About
       </div>
       <h4 className="s-title letter-space--2 text-black-72 split-text effect-blur-fade">
-        Designing brands and <br className="d-none d-lg-block" />
-        websites with clarity, creativity, <br className="d-none d-lg-block" />
-        and no-code speed
+        Designing enterprise products <br className="d-none d-lg-block" />
+        with AI-native speed <br className="d-none d-lg-block" />
+        and enterprise-grade clarity
       </h4>
       <p className="s-desc text-black-56 scrolling-effect effectTop">
-        I combine web design, brand identity, and no-code development to help
-        <br className="d-none d-lg-block" /> businesses move faster while staying true to their personality. <br />
+        I&apos;m a Senior UI/UX Designer with 5+ years delivering enterprise B2B, B2C, and SaaS products
+        <br className="d-none d-lg-block" /> across HR tech, legal, operations, and nonprofit domains. <br />
         <br />
-        Every project is approached with both strategy and style—making sure <br className="d-none d-lg-block" />
-        design isn’t just good-looking, but also purposeful and effective.
+        I pioneer AI-native design—building Claude-powered automation pipelines that turn complex <br className="d-none d-lg-block" />
+        business requirements into design systems, RBAC-aware platforms, and zero-friction dev handoff.
       </p>
       <ul className="award-list">
         {awards.map((a) => (

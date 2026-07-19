@@ -1,4 +1,5 @@
 import { BrandSlider } from "@/components/BrandSlider";
+import { profile } from "@/data/profile";
 
 export function Intro() {
     return (
@@ -15,17 +16,17 @@ export function Intro() {
                     />
                 </div>
                 <div className="author-info letter-space--05">
-                    <p className="info_name text-black">Alexander Isak</p>
+                    <p className="info_name text-black">{profile.fullName}</p>
                     <p className="info_duty text-black-50 text-body-3">
-                        UI Designer & No-Code Developer
+                        {profile.duty}
                     </p>
                 </div>
             </div>
 
             <h1 className="intro-title letter-space--2 ">
-                I’m building <span className="is-bg">websites</span> <br />
-                <span className="type-2 is-bg">& brands</span> that people
-                remember
+                I design <span className="is-bg">enterprise UX</span> <br />
+                <span className="type-2 is-bg">& AI-native</span> product
+                experiences
             </h1>
 
             <div className="intro-item">
@@ -90,7 +91,7 @@ export function Intro() {
             <div className="box-counter effectFade fadeUp no-div">
                 <div className="wg-counter">
                     <p className="counter h1 d-flex font-2 letter-space--2">
-                        <span className="number" data-speed="1000" data-to="10">
+                        <span className="number" data-speed="1000" data-to="5">
                             0
                         </span>
                         +
@@ -101,20 +102,20 @@ export function Intro() {
                 </div>
                 <div className="wg-counter">
                     <p className="counter h1 d-flex font-2 letter-space--2">
-                        <span className="number" data-speed="1000" data-to="6">
+                        <span className="number" data-speed="1000" data-to="75">
                             0
                         </span>
-                        x
+                        %
                     </p>
                     <p className="text text-black-56 text-body-3">
-                        Industry Awards
+                        Repetitive Work Automated
                     </p>
                 </div>
             </div>
 
             <p className="intro-client letter-space--05 text-body-3">
                 <i className="icon icon-global-elip" />
-                Our clients (2015-25©)
+                Our clients (2018-26©)
             </p>
 
             <BrandSlider />
