@@ -16,10 +16,10 @@ export function Footer() {
         <a href="#" className="f-logo effectFade fadeZoom">
           <div className="logo">
             <ImageSwitch
-              light="/assets/images/logo/logo.svg"
-              dark="/assets/images/logo/logo-2.svg"
+              light="/assets/images/logo/dela-mark-light.png"
+              dark="/assets/images/logo/dela-mark-dark.png"
               width={32}
-              height={32}
+              height={28}
             />
           </div>
         </a>

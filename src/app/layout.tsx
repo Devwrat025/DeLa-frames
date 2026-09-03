@@ -11,8 +11,8 @@ export const metadata: Metadata = {
         "Devwrat Pandey is a Senior UI/UX Designer specializing in enterprise B2B, B2C, and SaaS products, AI-native design workflows, and scalable design systems.",
     authors: [{ name: "Devwrat Pandey" }],
     icons: {
-        icon: "/assets/images/logo/favicon.svg",
-        apple: "/assets/images/logo/favicon.svg",
+        icon: "/assets/images/logo/favicon-192.png",
+        apple: "/assets/images/logo/favicon-apple.png",
     },
 };
 

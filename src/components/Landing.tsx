@@ -73,7 +73,7 @@ export function Landing() {
               <div className="landing-header">
                 <Link href="/" className="logo-site">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img loading="lazy" width={40} height={40} src="/assets/images/logo/logo-2.svg" alt="logo" />
+                  <img loading="lazy" width={40} height={35} src="/assets/images/logo/dela-mark-dark.png" alt="logo" />
                 </Link>
                 <a href="#" className="tf-btn-action">
                   <span className="ic-wrap">

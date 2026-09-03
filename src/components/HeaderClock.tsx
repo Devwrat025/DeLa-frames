@@ -10,10 +10,10 @@ export function HeaderClock({ variant = "v1" }: HeaderClockProps = {}) {
     <div className="tf-header-wrap">
       <a href="/" className="logo-site d-lg-none">
         <ImageSwitch
-          light="/assets/images/logo/logo.svg"
-          dark="/assets/images/logo/logo-2.svg"
+          light="/assets/images/logo/dela-mark-light.png"
+          dark="/assets/images/logo/dela-mark-dark.png"
           width={40}
-          height={40}
+          height={35}
         />
       </a>
       <div className={leftClass}>

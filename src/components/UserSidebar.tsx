@@ -52,11 +52,13 @@ export function UserSidebar({ variant = "v1" }: UserSidebarProps) {
                     )}
                 </div>
                 <div className="user-logo d-none d-lg-block">
+                    {/* Always the light-on-dark mark: this badge sits directly over the
+                        profile photo in both themes, not the page background. */}
                     <ImageSwitch
-                        light="/assets/images/logo/logo.svg"
-                        dark="/assets/images/logo/logo-2.svg"
+                        light="/assets/images/logo/dela-mark-dark.png"
+                        dark="/assets/images/logo/dela-mark-dark.png"
                         width={40}
-                        height={40}
+                        height={35}
                     />
                 </div>
                 <ul className="tf-social-icon-2 user-social d-grid">
