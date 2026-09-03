@@ -9,10 +9,10 @@ export function Intro() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         loading="lazy"
-                        width={23}
-                        height={31}
-                        src="/assets/images/avatar/avatar-boy.png"
-                        alt="avatar"
+                        width={30}
+                        height={26}
+                        src="/assets/images/logo/dela-mark-light.png"
+                        alt="DeLa Frames"
                     />
                 </div>
                 <div className="author-info letter-space--05">
