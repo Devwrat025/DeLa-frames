@@ -17,7 +17,7 @@ export const works: Work[] = [
     role: "Senior UI Designer",
     tags: ["UX Audit", "Design System", "Figma"],
     image: "/assets/images/section/work-1.jpg",
-    logo: "/assets/images/logo/logo-2.svg",
+    logo: "/assets/images/brand/companies/cdg-io.svg",
   },
   {
     title: "BGClub.org — Nonprofit Platform Redesign",
@@ -27,7 +27,7 @@ export const works: Work[] = [
     role: "Senior UI Designer",
     tags: ["UX Audit", "Information Architecture", "Brand"],
     image: "/assets/images/section/work-2.jpg",
-    logo: "/assets/images/logo/logo-2.svg",
+    logo: "/assets/images/brand/companies/bgclub.png",
   },
   {
     title: "AI-Native Design Automation",
@@ -37,6 +37,6 @@ export const works: Work[] = [
     role: "Senior UI/UX Designer",
     tags: ["Claude", "MCP", "Design Ops"],
     image: "/assets/images/section/work-3.jpg",
-    logo: "/assets/images/logo/logo-2.svg",
+    logo: "/assets/images/brand/companies/ksolves.webp",
   },
 ];

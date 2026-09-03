@@ -695,6 +695,18 @@
         .infiniteslide_wrap {
             opacity: 0.72;
         }
+
+        // Real client/employer logos are shipped in their native colors for
+        // light mode; force them to a white silhouette on dark backgrounds
+        // instead of shipping a second set of dark-mode assets.
+        .image-brand img {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    // Same treatment for the real employer logos used as timeline icons.
+    .timeline-content .icon img {
+        filter: brightness(0) invert(1);
     }
 
     .wg-curve-text {

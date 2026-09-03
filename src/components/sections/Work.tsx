@@ -38,10 +38,18 @@ export function Work() {
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                                 <img
                                                     loading="lazy"
-                                                    width={40}
-                                                    height={40}
+                                                    height={32}
+                                                    style={{
+                                                        width: "auto",
+                                                        maxWidth: 140,
+                                                        objectFit: "contain",
+                                                        // Card content always sits over a darkened photo
+                                                        // overlay, so logos need a white treatment
+                                                        // regardless of the site-wide theme.
+                                                        filter: "brightness(0) invert(1)",
+                                                    }}
                                                     src={w.logo}
-                                                    alt="logo"
+                                                    alt={`${w.title} logo`}
                                                 />
                                             </div>
                                             <h4 className="w-title letter-space--2 text-white-72">

@@ -62,7 +62,7 @@ export function UserSidebar({ variant = "v1" }: UserSidebarProps) {
                 <ul className="tf-social-icon-2 user-social d-grid">
                     {profile.socials.map((s) => (
                         <li key={s.label}>
-                            <a href={s.href} aria-label={s.label}>
+                            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
                                 <i className={`icon ${s.icon}`} />
                             </a>
                         </li>

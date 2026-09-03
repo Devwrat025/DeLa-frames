@@ -18,7 +18,7 @@ export function BrandSlider() {
                             light={b.light}
                             dark={b.dark}
                             width={b.width}
-                            height={24}
+                            height={b.height}
                             alt={b.name}
                         />
                     </div>
