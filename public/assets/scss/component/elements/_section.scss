@@ -1047,3 +1047,14 @@
         }
     }
 }
+
+.freelance-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+
+    .avaiable-dot {
+        flex-shrink: 0;
+    }
+}

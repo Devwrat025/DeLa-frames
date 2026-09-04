@@ -44,7 +44,7 @@ export function UserSidebar({ variant = "v1" }: UserSidebarProps) {
                             </div>
                             <p className="avaiable-dot vertical text-body-3 text-black-72 fw-medium">
                                 <span className="text-vertical">
-                                    Available for Work
+                                    {profile.availability}
                                 </span>
                                 <span className="dot" />
                             </p>
@@ -108,7 +108,7 @@ export function UserSidebar({ variant = "v1" }: UserSidebarProps) {
                         }
                     >
                         <span className="dot" />
-                        <span>Available for Work</span>
+                        <span>{profile.availability}</span>
                     </p>
                     <h5 className="greeting letter-space--2 text-white animationtext clip">
                         Hey, I’m{" "}

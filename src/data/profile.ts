@@ -4,6 +4,7 @@ export const profile = {
   duty: "Senior UI/UX Designer & AI-Native Design",
   introBio:
     "I design enterprise B2B/B2C products and build AI-native UX workflows, based in Pune, India.",
+  availability: "Available for Work & Freelance",
   email: "devpan98459@gmail.com",
   rotatingNames: ["Devwrat", "Designer", "UX Strategist"],
   socials: [
