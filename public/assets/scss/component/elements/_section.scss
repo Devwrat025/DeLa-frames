@@ -545,7 +545,8 @@
             @include flex(center, center);
             width: 48px;
             aspect-ratio: 1;
-            background-color: var(--white);
+            // Same grey pill treatment as the "& AI-native" .type-2 capsule.
+            background-color: var(--black);
             box-shadow: var(--shadow);
         }
     }

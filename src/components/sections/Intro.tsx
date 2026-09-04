@@ -11,7 +11,7 @@ export function Intro() {
                         loading="lazy"
                         width={30}
                         height={26}
-                        src="/assets/images/logo/dela-mark-light.png"
+                        src="/assets/images/logo/dela-mark-dark.png"
                         alt="DeLa Frames"
                     />
                 </div>

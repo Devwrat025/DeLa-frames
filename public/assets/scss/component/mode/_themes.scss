@@ -324,6 +324,14 @@
         }
     }
 
+    .section-intro .author-image {
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.04) 100%
+        );
+    }
+
     .sidebar-tools .tf-btn-icon,
     .sidebar-tools .item-link {
         color: var(--black-36);
