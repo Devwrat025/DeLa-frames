@@ -469,7 +469,7 @@ export function useIsakAnimations() {
         document
             .querySelectorAll<HTMLElement>(".text-rotate .text")
             .forEach((circularText) => {
-                const text = "award winning agency - since 2022 -";
+                const text = "dela frames design studio - since 2018 -";
                 const chars = text.split("");
                 const degree = 360 / chars.length;
                 circularText.innerHTML = "";
