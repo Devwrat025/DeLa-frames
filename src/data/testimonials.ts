@@ -12,4 +12,10 @@ export const testimonials: Testimonial[] = [
     authorRole: "Founder, PositioningPoint",
     image: "/assets/images/section/tes-silky-agarwal.webp",
   },
+  {
+    text: "Working with Devwrat was a fantastic experience. They are one of the best UI/UX designer and developer out there. Brilliant at thinking through ideas, creating sleek designs, and bringing them to life smoothly. Technical skills aside, he is genuinely awesome, friendly, and good-hearted person. All the best to him!",
+    authorName: "Tanuja N",
+    authorRole: "Founder, Troovetales",
+    image: "/assets/images/section/tes-tanuja-n.jpeg",
+  },
 ];
