@@ -115,7 +115,7 @@ export function Intro() {
 
             <p className="intro-client letter-space--05 text-body-3">
                 <i className="icon icon-global-elip" />
-                Our clients (2018-26©)
+                Companies I&apos;ve worked with (2018-26©)
             </p>
 
             <BrandSlider />

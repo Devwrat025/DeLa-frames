@@ -76,7 +76,7 @@ export function IntroV3() {
         </div>
       </div>
 
-      <p className="intro-client letter-space--05 text-body-3">Our clients (2018-26©)</p>
+      <p className="intro-client letter-space--05 text-body-3">Companies I&apos;ve worked with (2018-26©)</p>
 
       <BrandSlider />
     </div>

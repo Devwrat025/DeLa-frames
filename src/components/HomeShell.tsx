@@ -18,7 +18,7 @@ import { Work } from "./sections/Work";
 import { Services } from "./sections/Services";
 import { Tech } from "./sections/Tech";
 import { Testimonials } from "./sections/Testimonials";
-import { Freelance } from "./sections/Freelance";
+import { Philosophy } from "./sections/Philosophy";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 import { useIsakAnimations } from "@/hooks/useIsakAnimations";
@@ -124,7 +124,7 @@ export function HomeShell({
                                     <Services />
                                     <Tech />
                                     <Testimonials />
-                                    <Freelance />
+                                    <Philosophy />
                                     <Contact />
                                     <Footer />
                                 </div>
