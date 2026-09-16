@@ -5,7 +5,7 @@ export const profile = {
   introBio:
     "I design enterprise B2B/B2C products and build AI-native UX workflows, based in Pune, India.",
   availability: "Open to New Opportunities",
-  email: "devpan98459@gmail.com",
+  email: "delaframesinfo@gmail.com",
   rotatingNames: ["Devwrat", "Designer", "UX Strategist"],
   socials: [
     { icon: "icon-linkin", href: "https://linkedin.com/in/devwrat-pandey-533510157", label: "LinkedIn" },

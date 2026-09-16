@@ -3,12 +3,36 @@
 import { useState } from "react";
 import { profile } from "@/data/profile";
 
-export function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+// FormSubmit relays the form straight to the inbox below — no backend needed,
+// which keeps the site a pure static export. The /ajax/ endpoint returns JSON
+// instead of redirecting, so the visitor never leaves the page.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+type Status = "idle" | "sending" | "sent" | "error";
+
+export function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+
+    setStatus("sending");
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -23,11 +47,24 @@ export function Contact() {
         or fill the form - available now
       </h4>
       <form className="form-contact" id="contactform" onSubmit={handleSubmit} noValidate>
-        {submitted && (
+        {status === "sent" && (
           <div className="flat-alert msg-success" style={{ marginBottom: 16 }}>
-            Thanks for reaching out! (UI demo — no email is actually sent.)
+            Thanks for reaching out — your message is on its way. I&rsquo;ll get back to you shortly.
           </div>
         )}
+        {status === "error" && (
+          <div className="flat-alert msg-error" style={{ marginBottom: 16 }}>
+            Something went wrong sending that. Please email me directly at {profile.email}.
+          </div>
+        )}
+
+        {/* FormSubmit configuration */}
+        <input type="hidden" name="_subject" value="New enquiry from delaframes.com" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        {/* Honeypot: bots fill this, humans never see it */}
+        <input type="text" name="_honey" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
         <div className="form-content effectFade fadeUp no-div">
           <fieldset className="field-ip">
             <input type="text" name="name" id="name" placeholder="Your Name *" required />
@@ -41,8 +78,14 @@ export function Contact() {
         </div>
         <div className="form-action effectFade fadeUp no-div">
           <div className="send-wrap">
-            <button type="submit" className="tf-btn animate-btn animate-dark">
-              <span className="text-body-3">Send Message</span>
+            <button
+              type="submit"
+              className="tf-btn animate-btn animate-dark"
+              disabled={status === "sending"}
+            >
+              <span className="text-body-3">
+                {status === "sending" ? "Sending…" : "Send Message"}
+              </span>
             </button>
           </div>
           <a href={`mailto:${profile.email}`} className="text-body-1 link letter-space--2 text-black-72">
