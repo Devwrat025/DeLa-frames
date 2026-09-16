@@ -5,7 +5,8 @@ export type Work = {
   role: string;
   tags: string[];
   image: string;
-  logo: string;
+  /** Company wordmark, where one exists to show. */
+  logo?: string;
   caseStudySlug?: string;
 };
 
@@ -17,7 +18,7 @@ export const works: Work[] = [
     year: "2025",
     role: "Senior UI Designer",
     tags: ["UX Audit", "Design System", "Figma"],
-    image: "/assets/images/section/work-1.jpg",
+    image: "/assets/images/section/work-cdg.jpg",
     logo: "/assets/images/brand/companies/cdg-io.svg",
     caseStudySlug: "cdg",
   },
@@ -28,8 +29,19 @@ export const works: Work[] = [
     year: "2024",
     role: "Senior UI Designer",
     tags: ["UX Audit", "Information Architecture", "Brand"],
-    image: "/assets/images/section/work-2.jpg",
+    image: "/assets/images/section/work-bgcsv.jpg",
     logo: "/assets/images/brand/companies/bgclub.png",
+    caseStudySlug: "bgcsv",
+  },
+  {
+    title: "PositioningPoint — B2B SaaS Homepage Redesign",
+    description:
+      "Audited a positioning consultancy's homepage against the Nielsen Norman usability heuristics, found six violations, and rebuilt the page around how a skeptical founder actually evaluates a consultant—pain, then solution, then proof, then process, then action.",
+    year: "2025",
+    role: "UX/UI Designer",
+    tags: ["Heuristic Audit", "Information Architecture", "Figma"],
+    image: "/assets/images/case-studies/pp-hero.jpg",
+    caseStudySlug: "positioningpoint",
   },
   {
     title: "AI-Native Design Automation",

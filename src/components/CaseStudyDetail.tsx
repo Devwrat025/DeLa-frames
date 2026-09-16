@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ImageSwitch } from "@/components/ImageSwitch";
 import { Footer } from "@/components/sections/Footer";
+import { PillNav } from "@/components/PillNav";
+import { CaseStudyCarousel } from "@/components/CaseStudyCarousel";
 import { useBodyThemeClass } from "@/hooks/useBodyThemeClass";
 import type { CaseStudy } from "@/data/caseStudies";
 
@@ -11,21 +12,20 @@ export function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy }) {
 
   return (
     <>
+      <PillNav />
+
       <div className="case-study-page">
-        <div className="cs-topbar">
-          <a href="/" className="cs-logo" aria-label="DeLa Frames home">
-            <ImageSwitch
-              light="/assets/images/logo/dela-mark-light.png"
-              dark="/assets/images/logo/dela-mark-dark.png"
-              width={32}
-              height={28}
-            />
+        <nav className="cs-breadcrumb text-body-3" aria-label="Breadcrumb">
+          <a href="/" className="text-black-56">
+            Home
           </a>
-          <a href="/#work" className="cs-back text-body-3 text-black-72 fw-medium">
-            <i className="icon icon-arrow-right-top" />
-            Back to work
+          <i className="icon icon-arrow-caret-right" />
+          <a href="/#work" className="text-black-56">
+            Work
           </a>
-        </div>
+          <i className="icon icon-arrow-caret-right" />
+          <span className="text-black-72 fw-medium">{caseStudy.client}</span>
+        </nav>
 
         <div className="cs-hero">
           <div className="sect-tag text-caption fw-medium">
@@ -156,17 +156,28 @@ export function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy }) {
           </div>
         </div>
 
-        <div className="cs-section">
-          <h4 className="cs-block-title letter-space--2 text-black-72">Results</h4>
-          <div className="cs-stats-grid">
-            {caseStudy.stats.map((s) => (
-              <div key={s.label}>
-                <p className="cs-stat-value h4 font-2 letter-space--2 text-black-72">{s.value}</p>
-                <p className="text-body-3 text-black-56">{s.label}</p>
+        {(caseStudy.stats || caseStudy.outcome) && (
+          <div className="cs-section">
+            <h4 className="cs-block-title letter-space--2 text-black-72">
+              {caseStudy.stats ? "Results" : "Outcome"}
+            </h4>
+            {caseStudy.stats && (
+              <div className="cs-stats-grid">
+                {caseStudy.stats.map((s) => (
+                  <div key={s.label}>
+                    <p className="cs-stat-value h4 font-2 letter-space--2 text-black-72">
+                      {s.value}
+                    </p>
+                    <p className="text-body-3 text-black-56">{s.label}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+            {caseStudy.outcome && <p className="text-black-56">{caseStudy.outcome}</p>}
           </div>
-        </div>
+        )}
+
+        <CaseStudyCarousel currentSlug={caseStudy.slug} />
 
         <div className="cs-cta">
           <p className="text-black-72 fw-medium">Have a similar project in mind?</p>

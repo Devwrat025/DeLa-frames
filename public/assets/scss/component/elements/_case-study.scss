@@ -6,32 +6,165 @@
 .case-study-page {
     max-width: 1040px;
     margin: 0 auto;
-    padding: 0 24px 120px;
+    padding: 104px 24px 120px;
 
     @include res(sm) {
-        padding: 0 16px 80px;
+        padding: 92px 16px 80px;
     }
 }
 
-.cs-topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px 0;
+/* Glassmorphic pill nav (sub-pages) */
+.pill-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 120;
 
-    .cs-logo {
+    .pill-nav-inner {
         display: flex;
         align-items: center;
+        gap: 4px;
+        padding: 6px 6px 6px 8px;
+        border-radius: 999px;
+        background: var(--white-40);
+        border: 1px solid var(--black-6);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
     }
 
-    .cs-back {
+    .pill-nav-home {
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        height: 36px;
+        padding: 0 14px;
+        border-radius: 999px;
+        color: var(--black-72);
+        @include transition3;
 
         .icon {
-            transform: rotate(225deg);
+            font-size: 18px;
+            color: var(--primary);
         }
+
+        &:hover {
+            background-color: var(--black-6);
+        }
+    }
+
+    .pill-nav-divider {
+        width: 1px;
+        height: 20px;
+        background-color: var(--black-6);
+        margin: 0 2px;
+    }
+
+    .pill-nav-toggle {
+        @include flex(center, center);
+        width: 36px;
+        height: 36px;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        @include transition3;
+
+        &:hover {
+            background-color: var(--black-6);
+        }
+    }
+
+    .pill-nav-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        min-width: 208px;
+        padding: 8px;
+        border-radius: 20px;
+        background: var(--white-40);
+        border: 1px solid var(--black-6);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        @include transition3;
+        @include hidden;
+        transform: translateY(8px);
+        pointer-events: none;
+
+        &.open {
+            @include visible;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .pill-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            @include transition3;
+
+            .icon {
+                font-size: 18px;
+                color: var(--primary);
+            }
+
+            &:hover {
+                background-color: var(--black-6);
+            }
+        }
+    }
+
+    @include res(sm) {
+        top: 12px;
+        left: 16px;
+        right: 16px;
+        transform: none;
+
+        .pill-nav-inner {
+            justify-content: space-between;
+        }
+
+        .pill-nav-menu {
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.pill-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    @include transition3;
+    @include hidden;
+
+    &.open {
+        @include visible;
+    }
+}
+
+.cs-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    a {
+        @include transition3;
+
+        &:hover {
+            color: var(--black-72) !important;
+        }
+    }
+
+    .icon {
+        font-size: 12px;
+        color: var(--black-40);
     }
 }
 
@@ -257,6 +390,119 @@
 
 .cs-stat-value {
     margin-bottom: 8px;
+}
+
+/* "More work" scrollable card rail */
+.cs-rail {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--black-6);
+
+    .cs-rail-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        .group-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sw-nav {
+            @include flex(center, center);
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--black-6);
+            border-radius: 50%;
+            background-color: var(--black-6);
+            color: var(--black-72);
+            padding: 0;
+            @include transition3;
+
+            &:hover {
+                background-color: var(--black-15);
+            }
+        }
+    }
+
+    .cs-rail-track {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .cs-rail-card {
+        flex: 0 0 320px;
+        scroll-snap-align: start;
+        padding: 4px;
+        border-radius: 24px;
+        background-color: var(--black-6);
+        box-shadow: var(--shadow-2);
+        @include transition3;
+
+        &:hover {
+            transform: translateY(-4px);
+
+            .cs-rail-cta .icon {
+                transform: translate(2px, -2px);
+            }
+        }
+
+        .cs-rail-image {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: calc(700 / 427);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-rail-body {
+            padding: 20px 16px 16px;
+        }
+
+        .cs-rail-year {
+            margin-bottom: 8px;
+        }
+
+        .cs-rail-title {
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 16px;
+        }
+
+        .cs-rail-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--primary);
+
+            .icon {
+                font-size: 14px;
+                @include transition3;
+            }
+        }
+    }
+
+    @include res(sm) {
+        .cs-rail-card {
+            flex-basis: 268px;
+        }
+    }
 }
 
 .cs-cta {
