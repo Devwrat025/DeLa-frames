@@ -93,14 +93,20 @@ export function Work() {
                                             <div className="br-line" />
                                             <div className="group-action">
                                                 <a
-                                                    href="#"
+                                                    href={
+                                                        w.caseStudySlug
+                                                            ? `/work/${w.caseStudySlug}`
+                                                            : "#contact"
+                                                    }
                                                     className="tf-btn-action style-white"
                                                 >
                                                     <span className="ic-wrap">
                                                         <i className="icon icon-arrow-right-top" />
                                                     </span>
                                                     <span className="text text-body-3 letter-space--05 fw-medium">
-                                                        Let’s talk
+                                                        {w.caseStudySlug
+                                                            ? "View case study"
+                                                            : "Let’s talk"}
                                                     </span>
                                                     <span className="ic-wrap">
                                                         <i className="icon icon-arrow-right-top" />

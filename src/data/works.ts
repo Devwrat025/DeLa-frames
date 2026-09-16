@@ -6,6 +6,7 @@ export type Work = {
   tags: string[];
   image: string;
   logo: string;
+  caseStudySlug?: string;
 };
 
 export const works: Work[] = [
@@ -18,6 +19,7 @@ export const works: Work[] = [
     tags: ["UX Audit", "Design System", "Figma"],
     image: "/assets/images/section/work-1.jpg",
     logo: "/assets/images/brand/companies/cdg-io.svg",
+    caseStudySlug: "cdg",
   },
   {
     title: "BGClub.org — Nonprofit Platform Redesign",
