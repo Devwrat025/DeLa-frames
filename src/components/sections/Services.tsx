@@ -1,31 +1,93 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { services } from "@/data/services";
-import Image from "next/image";
 
 export function Services() {
+    const [activeId, setActiveId] = useState(services[0].id);
+    // A clip that has not been supplied yet falls back to its poster instead
+    // of leaving an empty panel.
+    const [missing, setMissing] = useState<Record<string, boolean>>({});
+    const [inView, setInView] = useState(false);
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    const active = services.find((s) => s.id === activeId) ?? services[0];
+    const showVideo = Boolean(active.video) && !missing[active.id];
+
+    // The card is pinned to the left of the viewport on desktop, so it only
+    // reveals itself while this section is the one being read.
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setInView(entry.isIntersecting),
+            { rootMargin: "-25% 0px -25% 0px" },
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div id="service" className="section-service flat-spacing">
+        <div
+            id="service"
+            className="section-service flat-spacing"
+            ref={sectionRef}
+        >
             <div className="sect-tag text-caption fw-medium effectFade fadeUp no-div mb-0">
                 <i className="icon icon-service" />
                 Services
             </div>
 
+            <div className={`service-media${inView ? " active" : ""}`}>
+                <div className="service-media-inner">
+                    {showVideo ? (
+                        <video
+                            key={active.video}
+                            className="service-media-asset"
+                            src={active.video}
+                            poster={active.poster}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            onError={() =>
+                                setMissing((prev) => ({
+                                    ...prev,
+                                    [active.id]: true,
+                                }))
+                            }
+                        />
+                    ) : (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                            className="service-media-asset"
+                            src={active.poster}
+                            alt={active.title}
+                        />
+                    )}
+                    <div className="service-media-label">
+                        <p className="text-body-3 fw-medium text-white">
+                            {active.title}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div id="accordion-service">
-                {services.map((s, idx) => {
-                    const isOpen = idx === 0;
+                {services.map((s) => {
+                    const isOpen = s.id === activeId;
 
                     return (
                         <div
                             key={s.id}
                             className="service-accordion_item scrolling-effect effectBottom"
                         >
-                            <a
-                                href={`#${s.id}`}
+                            <button
+                                type="button"
                                 className={`accordion-action${isOpen ? "" : " collapsed"}`}
-                                data-bs-toggle="collapse"
-                                data-bs-target={`#${s.id}`}
-                                aria-expanded={isOpen ? "true" : "false"}
+                                onClick={() => setActiveId(s.id)}
+                                aria-expanded={isOpen}
                                 aria-controls={s.id}
                             >
                                 <h4 className="text letter-space--2 text-black-72">
@@ -35,41 +97,21 @@ export function Services() {
                                 <div className="ic-wrap">
                                     <span className="ic-accordion-custom" />
                                 </div>
-                            </a>
+                            </button>
 
                             <div
                                 id={s.id}
                                 className={`collapse${isOpen ? " show" : ""}`}
-                                data-bs-parent="#accordion-service"
                             >
                                 <div className="accordion-content">
-                                    <div className="tf-grid-layout sm-col-2">
-                                        {s.images.map((img) => (
-                                            <div
-                                                className="service-image"
-                                                key={img}
-                                            >
-                                                <div className="wrap_image">
-                                                    <Image
-                                                        width={340}
-                                                        height={206}
-                                                        src={img}
-                                                        alt={s.title}
-                                                    />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-
                                     <div className="service-tag">
                                         {s.tags.map((tag) => (
-                                            <a
+                                            <span
                                                 key={tag}
-                                                href="#"
-                                                className="tag-item text-body-3 fw-medium text-black-72 link"
+                                                className="tag-item text-body-3 fw-medium text-black-72"
                                             >
                                                 {tag}
-                                            </a>
+                                            </span>
                                         ))}
                                     </div>
 

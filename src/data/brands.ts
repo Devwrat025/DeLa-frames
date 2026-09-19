@@ -40,17 +40,43 @@ export const brands: Brand[] = [
     height: 24,
   },
   {
+    // Trimmed from 217px: it was 40% wider than anything else in the strip
+    // and single-handedly pushed the third logo out of view.
     name: "CDG.io",
     light: "/assets/images/brand/companies/cdg-io.svg",
     dark: "/assets/images/brand/companies/cdg-io.svg",
-    width: 217,
-    height: 20,
+    width: 195,
+    height: 18,
   },
   {
     name: "Boys & Girls Clubs of Silicon Valley",
     light: "/assets/images/brand/companies/bgclub.png",
     dark: "/assets/images/brand/companies/bgclub.png",
-    width: 65,
-    height: 28,
+    width: 155,
+    height: 34,
+  },
+  {
+    name: "PositioningPoint",
+    light: "/assets/images/brand/companies/positioningpoint.webp",
+    dark: "/assets/images/brand/companies/positioningpoint.webp",
+    width: 158,
+    height: 24,
+  },
+  {
+    // The cream wordmark disappears against a light page, so this one does
+    // need a genuinely different asset per theme: recoloured for light,
+    // original brand colours for dark (where CSS silhouettes it anyway).
+    name: "Roastify Media",
+    light: "/assets/images/brand/companies/roastify-media-light.webp",
+    dark: "/assets/images/brand/companies/roastify-media.webp",
+    width: 128,
+    height: 38,
+  },
+  {
+    name: "SkillCircle",
+    light: "/assets/images/brand/companies/skillcircle.webp",
+    dark: "/assets/images/brand/companies/skillcircle.webp",
+    width: 127,
+    height: 38,
   },
 ];

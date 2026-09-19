@@ -21,16 +21,14 @@ export function About() {
       </p>
       <ul className="award-list">
         {awards.map((a) => (
-          <li className="award-item hover-cursor-img" key={a.name + a.year}>
+          <li className="award-item" key={a.name + a.year}>
             <div className="left">
               <h6 className="award_name letter-space--2 text-black-72">{a.name}</h6>
               <p className="award_desc text-black-56">{a.publisher}</p>
             </div>
-            <h6 className="award_year text-black-72">{a.year}</h6>
-            <div className="award_img hover-image">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img loading="lazy" width={158} height={224} src={a.image} alt={a.name} />
-            </div>
+            <span className="award_icon" aria-hidden="true">
+              <i className="icon icon-arrow-top" />
+            </span>
           </li>
         ))}
       </ul>

@@ -41,16 +41,7 @@ export const works: Work[] = [
     role: "UX/UI Designer",
     tags: ["Heuristic Audit", "Information Architecture", "Figma"],
     image: "/assets/images/case-studies/pp-hero.jpg",
+    logo: "/assets/images/brand/companies/positioningpoint.webp",
     caseStudySlug: "positioningpoint",
-  },
-  {
-    title: "AI-Native Design Automation",
-    description:
-      "Built Claude-powered design automation using custom Skills, Agents, and MCP integrations for Figma and Freepik—cutting design cycles from 1.5 days to under 4 hours and eliminating 75% of repetitive production work.",
-    year: "2026",
-    role: "Senior UI/UX Designer",
-    tags: ["Claude", "MCP", "Design Ops"],
-    image: "/assets/images/section/work-3.jpg",
-    logo: "/assets/images/brand/companies/ksolves.webp",
   },
 ];

@@ -392,6 +392,373 @@
     margin-bottom: 8px;
 }
 
+/* Pull quote, centred, standing on its own ahead of the contact/footer block. */
+/* Achievements list: a marker in place of the year, and no hover-follow card. */
+.award-list .award-item {
+    cursor: default;
+
+    .award_icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--black-6);
+        color: var(--primary);
+        @include flex(center, center);
+        @include transition3;
+
+        .icon {
+            font-size: 16px;
+        }
+    }
+
+    &:hover .award_icon {
+        background-color: var(--primary);
+        color: var(--white);
+    }
+}
+
+/* The work tile is a link now, so keep it laying out like the block it
+   replaced and give the panel's own scroll area a slim, dark-friendly bar. */
+.wg-work {
+    a.work-image {
+        display: block;
+    }
+
+    .work-content .content {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.32) transparent;
+        overscroll-behavior: contain;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.32);
+            border-radius: 999px;
+        }
+    }
+}
+
+/* Full-width pull-quote banner, directly above the footer. Layout borrowed
+   from a standard marketing footer banner; colours are our own. */
+.quote-banner {
+    padding-top: 40px;
+
+    .quote-banner-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px 40px;
+        padding: 56px;
+        border-radius: 24px;
+        background:
+            radial-gradient(
+                120% 140% at 100% 0%,
+                rgba(0, 222, 81, 0.18) 0%,
+                rgba(0, 222, 81, 0) 60%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.05) 0%,
+                rgba(0, 0, 0, 0.02) 100%
+            );
+        box-shadow: var(--shadow-2);
+    }
+
+    .quote-banner-text {
+        flex: 1 1 520px;
+        max-width: 760px;
+        margin-bottom: 0;
+        color: var(--black-72);
+    }
+
+    .quote-mark {
+        color: var(--primary);
+    }
+
+    .quote-banner-author {
+        flex-shrink: 0;
+        margin-bottom: 0;
+        color: var(--black-56);
+    }
+
+    @include res(md) {
+        .quote-banner-inner {
+            padding: 32px 24px;
+        }
+    }
+}
+
+/* Site footer: brand block, link columns, then a bottom bar. */
+.site-footer {
+    padding-top: 64px;
+    padding-bottom: 40px;
+
+    // Brand block on the left, contact form filling the right.
+    .site-footer-top {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 48px 64px;
+        padding-bottom: 48px;
+    }
+
+    .footer-contact {
+        .footer-contact-title {
+            margin-bottom: 32px;
+        }
+
+        // The stock spacing is tuned for a full-height section; inside the
+        // footer it leaves a large hole under the fields.
+        .form-contact .form-content {
+            margin-bottom: 28px;
+        }
+    }
+
+    .site-footer-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+
+        span {
+            font-family: $font-2;
+            font-size: 20px;
+        }
+    }
+
+    .site-footer-desc {
+        max-width: 360px;
+        margin-bottom: 16px;
+    }
+
+    .site-footer-mail {
+        @include transition3;
+
+        &:hover {
+            color: var(--primary) !important;
+        }
+    }
+
+    .site-footer-heading {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 20px;
+    }
+
+    .site-footer-col {
+        li:not(:last-child) {
+            margin-bottom: 12px;
+        }
+
+        a {
+            @include transition3;
+
+            &:hover {
+                color: var(--primary) !important;
+            }
+        }
+    }
+
+    .site-footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 28px;
+        border-top: 1px solid var(--black-6);
+    }
+
+    .site-footer-social {
+        gap: 8px;
+    }
+
+    @include res(lg) {
+        .site-footer-top {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    @include res(sm) {
+        padding-top: 48px;
+    }
+}
+
+/* Contact card: holds the left column from Tech Stack through the Philosophy
+   section, which would otherwise sit empty once the services panel lets go. */
+.contact-card {
+    // Below lg there is no left column, and the contact section follows
+    // shortly anyway, so this would only be a duplicate.
+    display: none;
+
+    .contact-card-inner {
+        width: 100%;
+        padding: 32px;
+        background-color: var(--white);
+        border-radius: 24px;
+        box-shadow: var(--shadow-2);
+    }
+
+    .contact-card-logo {
+        margin-bottom: 28px;
+    }
+
+    .avaiable-dot {
+        margin-bottom: 16px;
+    }
+
+    .contact-card-title {
+        margin-bottom: 12px;
+    }
+
+    .contact-card-desc {
+        margin-bottom: 24px;
+    }
+
+    .contact-card-mail {
+        display: inline-block;
+        word-break: break-all;
+        @include transition3;
+
+        &:hover {
+            color: var(--primary) !important;
+        }
+    }
+
+    .br-line {
+        margin-top: 28px;
+        margin-bottom: 24px;
+        background-color: var(--black-6);
+    }
+
+    .contact-card-social {
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+
+    @include res(lg, min) {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        bottom: 16px;
+        z-index: 1;
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        @include transition3;
+        transform: translateY(-40px);
+        @include hidden;
+
+        &.active {
+            transform: translateY(0);
+            @include visible;
+        }
+    }
+
+    @include res(xxl, min) {
+        max-width: 480px;
+    }
+
+    @include res(xxxl, min) {
+        left: 48px;
+    }
+}
+
+// The accordion header is a real <button> now, since it drives which clip
+// plays. Strip the native button chrome so it still reads as a heading row.
+.section-service .accordion-action {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+}
+
+/* Services: one big media card, pinned left, driven by the selected service.
+   Mirrors the work section's panel so the left column keeps one consistent
+   role across the page. */
+.service-media {
+    margin-bottom: 32px;
+
+    .service-media-inner {
+        position: relative;
+        padding: 6px;
+        background-color: var(--white);
+        border-radius: 24px;
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+    }
+
+    .service-media-asset {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+        aspect-ratio: calc(468 / 620);
+        background-color: var(--black-6);
+    }
+
+    .service-media-label {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.56);
+        border: 1px solid var(--white-8);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    @include res(lg, min) {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        bottom: 16px;
+        z-index: 1;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        @include transition3;
+        transform: translateY(-40px);
+        @include hidden;
+
+        &.active {
+            transform: translateY(0);
+            @include visible;
+        }
+
+        .service-media-inner {
+            width: 100%;
+        }
+
+        .service-media-asset {
+            aspect-ratio: auto;
+            height: calc(100vh - 60px);
+            max-height: 848px;
+        }
+    }
+
+    @include res(xxl, min) {
+        max-width: 480px;
+    }
+
+    @include res(xxxl, min) {
+        left: 48px;
+    }
+}
+
 /* "More work" scrollable card rail */
 .cs-rail {
     margin-top: 80px;
@@ -505,13 +872,3 @@
     }
 }
 
-.cs-cta {
-    margin-top: 64px;
-    padding-top: 40px;
-    border-top: 1px solid var(--black-6);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}

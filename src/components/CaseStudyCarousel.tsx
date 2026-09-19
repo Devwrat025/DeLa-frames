@@ -49,7 +49,7 @@ export function CaseStudyCarousel({ currentSlug }: { currentSlug: string }) {
 
       <div className="cs-rail-track" ref={railRef}>
         {others.map((w) => {
-          const href = w.caseStudySlug ? `/work/${w.caseStudySlug}` : "/#work";
+          const href = w.caseStudySlug ? `/work/${w.caseStudySlug}/` : "/#work";
 
           return (
             <a className="cs-rail-card" href={href} key={w.title}>

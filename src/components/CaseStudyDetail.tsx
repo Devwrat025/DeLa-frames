@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Footer } from "@/components/sections/Footer";
+import { SiteFooter } from "@/components/sections/SiteFooter";
 import { PillNav } from "@/components/PillNav";
 import { CaseStudyCarousel } from "@/components/CaseStudyCarousel";
 import { useBodyThemeClass } from "@/hooks/useBodyThemeClass";
@@ -178,22 +178,10 @@ export function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy }) {
         )}
 
         <CaseStudyCarousel currentSlug={caseStudy.slug} />
-
-        <div className="cs-cta">
-          <p className="text-black-72 fw-medium">Have a similar project in mind?</p>
-          <a href="/#contact" className="tf-btn-action">
-            <span className="ic-wrap">
-              <i className="icon icon-arrow-right-top" />
-            </span>
-            <span className="text text-body-3 letter-space--05 fw-medium">Let&rsquo;s talk</span>
-            <span className="ic-wrap">
-              <i className="icon icon-arrow-right-top" />
-            </span>
-          </a>
-        </div>
       </div>
 
-      <Footer />
+      {/* Same footer as the homepage, contact form included. */}
+      <SiteFooter homeHref="/" />
     </>
   );
 }

@@ -3,8 +3,15 @@ export type Service = {
   title: string;
   description: string;
   tags: string[];
-  images: string[];
-  expanded: boolean,
+  /**
+   * Clip shown in the big card on the left when this service is selected.
+   * Drop the file at the path below and it plays automatically; until then
+   * the component falls back to `poster`, so a missing file is never a
+   * broken panel.
+   */
+  video?: string;
+  /** Still shown before the clip loads, and instead of it if it is missing. */
+  poster: string;
 };
 
 export const services: Service[] = [
@@ -14,8 +21,8 @@ export const services: Service[] = [
     description:
       "I own end-to-end UX for enterprise B2B, B2C, and SaaS products—from requirement analysis and information architecture through wireframes, high-fidelity UI, and usability testing.",
     tags: ["Interaction Design", "Design Systems", "Usability Testing"],
-    images: ["/assets/images/section/service-1.jpg", "/assets/images/section/service-2.jpg"],
-    expanded: true,
+    video: "/assets/videos/services/service-1.mp4",
+    poster: "/assets/images/section/service-1.jpg",
   },
   {
     id: "service-2",
@@ -23,8 +30,8 @@ export const services: Service[] = [
     description:
       "I build Claude-powered design automation using custom Skills, Agents, and MCP integrations with Figma and Freepik—cutting design cycles from days to hours and eliminating repetitive production work.",
     tags: ["Claude Skills & Agents", "Prompt Engineering", "Agentic UX"],
-    images: ["/assets/images/section/service-3.jpg", "/assets/images/section/service-4.jpg"],
-    expanded: false,
+    video: "/assets/videos/services/service-2.mp4",
+    poster: "/assets/images/section/service-3.jpg",
   },
   {
     id: "service-3",
@@ -32,7 +39,7 @@ export const services: Service[] = [
     description:
       "I craft scalable component libraries and design tokens, and partner closely with engineering for zero-friction, API-aware handoff across RBAC and multi-persona platforms.",
     tags: ["Design Tokens", "Component Libraries", "Dev Handoff"],
-    images: ["/assets/images/section/service-5.jpg", "/assets/images/section/service-6.jpg"],
-    expanded: false,
+    video: "/assets/videos/services/service-3.mp4",
+    poster: "/assets/images/section/service-5.jpg",
   },
 ];

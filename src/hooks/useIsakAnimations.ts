@@ -261,77 +261,105 @@ export function useIsakAnimations() {
         });
 
         /* ---------------- Work / sticky-item sidebar active ---------------- */
-        let isClickScrolling = false;
-        let clickScrollTimer: ReturnType<typeof setTimeout> | null = null;
         const sidebar = document.querySelector(".sidebar-user");
-        const works = document.querySelectorAll<HTMLElement>(".sticky-item");
+        const works = Array.from(
+            document.querySelectorAll<HTMLElement>(".sticky-item"),
+        );
         if (sidebar && works.length) {
-            const firstWork = works[0];
-            const lastWork = works[works.length - 1];
-            const sidebarTrigger = ScrollTrigger.create({
-                trigger: firstWork,
-                start: "top 132px",
-                endTrigger: lastWork,
-                end: "bottom 68px",
-                onEnter: () =>
-                    !isClickScrolling && sidebar.classList.add("active"),
-                onLeave: () =>
-                    !isClickScrolling && sidebar.classList.remove("active"),
-                onEnterBack: () =>
-                    !isClickScrolling && sidebar.classList.add("active"),
-                onLeaveBack: () =>
-                    !isClickScrolling && sidebar.classList.remove("active"),
-                invalidateOnRefresh: true,
-            });
-            triggers.push(sidebarTrigger);
-
-            works.forEach((work) => {
-                const wrap = work.querySelector(".wrap");
-                if (!wrap) return;
-                const t = ScrollTrigger.create({
-                    trigger: work,
-                    start: "top 132px",
-                    end: "bottom 68px",
-                    onEnter: () => {
-                        if (isClickScrolling) return;
-                        document
-                            .querySelectorAll(".sticky-item .wrap")
-                            .forEach((el) => el.classList.remove("active"));
-                        wrap.classList.add("active");
-                    },
-                    onEnterBack: () => {
-                        if (isClickScrolling) return;
-                        document
-                            .querySelectorAll(".sticky-item .wrap")
-                            .forEach((el) => el.classList.remove("active"));
-                        wrap.classList.add("active");
-                    },
-                    onLeave: () => {
-                        if (!isClickScrolling) wrap.classList.remove("active");
-                    },
-                    onLeaveBack: () => {
-                        if (!isClickScrolling) wrap.classList.remove("active");
-                    },
-                    invalidateOnRefresh: true,
-                });
-                triggers.push(t);
-            });
-
-            const onAnchorClick = () => {
-                isClickScrolling = true;
-                if (clickScrollTimer) clearTimeout(clickScrollTimer);
-                clickScrollTimer = setTimeout(() => {
-                    isClickScrolling = false;
-                }, 800);
-            };
-            const anchors =
-                document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-            anchors.forEach((a) => a.addEventListener("click", onAnchorClick));
-            cleanups.push(() =>
-                anchors.forEach((a) =>
-                    a.removeEventListener("click", onAnchorClick),
-                ),
+            // Which card owns the fixed left-hand panel is derived from live
+            // geometry instead of per-card enter/leave triggers. The cards are
+            // sticky, so they pile up at the same offset and several satisfy
+            // their trigger ranges at once — whichever fired last won, and a
+            // card leaving could clear the panel while another was still on
+            // screen. Reading the front-most card on each scroll cannot drift.
+            const wraps = works.map((work) =>
+                work.querySelector<HTMLElement>(".wrap"),
             );
+            const desktop = window.matchMedia("(min-width: 992px)");
+            let hovered: number | null = null;
+
+            // Where the cards come to rest while stacking.
+            const stickyLine = () => {
+                const parked = parseFloat(getComputedStyle(works[0]).top);
+                return (Number.isFinite(parked) ? parked : 132) + 2;
+            };
+
+            const frontCardIndex = (line: number) => {
+                let index = -1;
+                works.forEach((work, i) => {
+                    const rect = work.getBoundingClientRect();
+                    // Later cards paint over earlier ones, so the last card
+                    // still crossing the sticky line is the one on top.
+                    if (rect.top <= line && rect.bottom > line) index = i;
+                });
+                return index;
+            };
+
+            // Pointing at the panel should scroll the panel's own copy when
+            // there is more of it than fits, but must not trap the page when
+            // everything is already visible — so the Lenis opt-out is applied
+            // only while the content genuinely overflows.
+            const syncPanelScrollLock = () => {
+                wraps.forEach((wrap) => {
+                    const content = wrap?.querySelector<HTMLElement>(".content");
+                    if (!content) return;
+                    content.toggleAttribute(
+                        "data-lenis-prevent",
+                        content.scrollHeight > content.clientHeight + 4,
+                    );
+                });
+            };
+
+            const syncWorkPanel = () => {
+                const line = stickyLine();
+                syncPanelScrollLock();
+                // Below lg the panel is inline, not a fixed overlay.
+                const index = desktop.matches
+                    ? (hovered ?? frontCardIndex(line))
+                    : -1;
+                wraps.forEach((wrap, i) =>
+                    wrap?.classList.toggle("active", i === index),
+                );
+
+                // Personal details belong to the top of the page only. Once
+                // the first work card reaches the line — i.e. once Education &
+                // Experience is behind us — they stay hidden for the rest of
+                // the scroll, instead of reappearing after the work section.
+                sidebar.classList.toggle(
+                    "active",
+                    works[0].getBoundingClientRect().top <= line,
+                );
+            };
+
+            // Hovering any card hands the panel to that card, so the left side
+            // always describes whatever the cursor is on.
+            works.forEach((work, i) => {
+                const onPointerEnter = () => {
+                    hovered = i;
+                    syncWorkPanel();
+                };
+                const onPointerLeave = () => {
+                    if (hovered === i) hovered = null;
+                    syncWorkPanel();
+                };
+                work.addEventListener("mouseenter", onPointerEnter);
+                work.addEventListener("mouseleave", onPointerLeave);
+                cleanups.push(() => {
+                    work.removeEventListener("mouseenter", onPointerEnter);
+                    work.removeEventListener("mouseleave", onPointerLeave);
+                });
+            });
+
+            window.addEventListener("scroll", syncWorkPanel, { passive: true });
+            window.addEventListener("resize", syncWorkPanel);
+            cleanups.push(() => {
+                window.removeEventListener("scroll", syncWorkPanel);
+                window.removeEventListener("resize", syncWorkPanel);
+            });
+            syncWorkPanel();
+            // No click-scroll guard needed any more: state is recomputed from
+            // geometry on every scroll, so jumping via a nav anchor lands in
+            // the correct state instead of needing to be suppressed.
         }
 
         /* ---------------- Flip Animation (gsap-anime-2) ---------------- */
@@ -471,14 +499,62 @@ export function useIsakAnimations() {
             .forEach((circularText) => {
                 const text = "dela frames design studio - since 2018 -";
                 const chars = text.split("");
-                const degree = 360 / chars.length;
                 circularText.innerHTML = "";
-                chars.forEach((char, i) => {
+
+                const spans = chars.map((char) => {
                     const span = document.createElement("span");
                     span.textContent = char;
-                    span.style.transform = `rotate(${i * degree}deg)`;
                     circularText.appendChild(span);
+                    return span;
                 });
+
+                // Give each character an arc proportional to how wide it
+                // actually renders. A flat 360/length step hands every glyph
+                // the same slice, so narrow ones ("I", "1") leave a visible
+                // hole and wide ones ("M", "W") crowd their neighbours.
+                const layoutRing = () => {
+                    const probe = spans[0];
+                    if (!probe) return;
+
+                    const cs = getComputedStyle(probe);
+                    const ctx = document
+                        .createElement("canvas")
+                        .getContext("2d");
+
+                    let widths: number[];
+                    if (ctx) {
+                        ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+                        // The spans are uppercased in CSS, so measure the
+                        // glyph that is really drawn, not the source char.
+                        const upper = cs.textTransform === "uppercase";
+                        const tracking = parseFloat(cs.letterSpacing) || 0;
+                        widths = chars.map(
+                            (c) =>
+                                ctx.measureText(upper ? c.toUpperCase() : c)
+                                    .width + tracking,
+                        );
+                    } else {
+                        widths = chars.map(() => 1);
+                    }
+
+                    const total = widths.reduce((sum, w) => sum + w, 0);
+                    if (!total) return;
+
+                    // Each glyph is anchored at its left edge and hangs
+                    // clockwise, so it starts where the previous one ended.
+                    let angle = 0;
+                    spans.forEach((span, i) => {
+                        span.style.transform = `rotate(${angle}deg)`;
+                        angle += (widths[i] / total) * 360;
+                    });
+                };
+
+                layoutRing();
+                // Widths measured before the webfont arrives belong to the
+                // fallback face, so lay the ring out again once it loads.
+                if (document.fonts?.ready) {
+                    document.fonts.ready.then(layoutRing).catch(() => {});
+                }
             });
 
         /* ---------------- Active Class for intro title spans ---------------- */

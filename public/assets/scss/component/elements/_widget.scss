@@ -10,11 +10,18 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    // Must be an explicit override, not a deletion: the precompiled
+    // public/assets/css/styles.css loads before this file and still caps the
+    // strip at 464px above 992px, which left a wide gap of dead space to the
+    // right of the logos. Deleting the rule here does not undo that one.
+    max-width: none;
+    // Narrow edge fade only, just enough to hide the wrap seam. A wider fade
+    // eats into the readable area and leaves too few logos legible at once.
     -webkit-mask-image: linear-gradient(
         90deg,
         transparent 0%,
-        black 18%,
-        black 82%,
+        black 8%,
+        black 92%,
         transparent 100%
     );
     -webkit-mask-mode: alpha;
@@ -22,21 +29,21 @@
     mask-image: linear-gradient(
         90deg,
         transparent 0%,
-        black 18%,
-        black 82%,
+        black 8%,
+        black 92%,
         transparent 100%
     );
     mask-mode: alpha;
     mask-repeat: no-repeat;
 
     .image-brand {
-        margin-right: 28px;
-        padding-left: 28px;
+        margin-right: 14px;
+        padding-left: 14px;
     }
 
-    @include res(lg, min) {
-        max-width: 464px;
-    }
+    // Deliberately uncapped: the strip fills its column so at least three
+    // logos stay on screen at once, down to the lg breakpoint. It used to be
+    // held at 464px, which only had room for about one and a half.
 }
 
 .award-list {

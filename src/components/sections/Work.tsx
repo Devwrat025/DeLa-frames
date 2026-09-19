@@ -12,15 +12,31 @@ export function Work() {
                 {works.map((w, i) => (
                     <div className="sticky-item" key={w.title}>
                         <div className="wg-work">
-                            <div className="work-image">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <Image
-                                    width={700}
-                                    height={427}
-                                    src={w.image}
-                                    alt={w.title}
-                                />
-                            </div>
+                            {/* The tile itself opens the case study, not just
+                                the button inside the panel. */}
+                            {w.caseStudySlug ? (
+                                <a
+                                    href={`/work/${w.caseStudySlug}/`}
+                                    className="work-image"
+                                    aria-label={`View the ${w.title} case study`}
+                                >
+                                    <Image
+                                        width={700}
+                                        height={427}
+                                        src={w.image}
+                                        alt={w.title}
+                                    />
+                                </a>
+                            ) : (
+                                <div className="work-image">
+                                    <Image
+                                        width={700}
+                                        height={427}
+                                        src={w.image}
+                                        alt={w.title}
+                                    />
+                                </div>
+                            )}
                             <div className="wrap">
                                 <div className="work-content">
                                     <div className="w-image">
@@ -32,6 +48,9 @@ export function Work() {
                                             alt={w.title}
                                         />
                                     </div>
+                                    {/* data-lenis-prevent is applied at runtime,
+                                        only while this content actually
+                                        overflows — see useIsakAnimations. */}
                                     <div className="content">
                                         <div className="content-top">
                                             {w.logo && (
@@ -97,7 +116,7 @@ export function Work() {
                                                 <a
                                                     href={
                                                         w.caseStudySlug
-                                                            ? `/work/${w.caseStudySlug}`
+                                                            ? `/work/${w.caseStudySlug}/`
                                                             : "#contact"
                                                     }
                                                     className="tf-btn-action style-white"

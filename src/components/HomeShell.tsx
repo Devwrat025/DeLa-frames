@@ -7,6 +7,7 @@ import { MobileMenu } from "./MobileMenu";
 import { DesktopSidebar } from "./DesktopSidebar";
 import { HeaderClock } from "./HeaderClock";
 import { UserSidebar } from "./UserSidebar";
+import { ContactCard } from "./ContactCard";
 import { Preloader } from "./Preloader";
 import { Intro } from "./sections/Intro";
 import { IntroV2 } from "./sections/IntroV2";
@@ -19,8 +20,8 @@ import { Services } from "./sections/Services";
 import { Tech } from "./sections/Tech";
 import { Testimonials } from "./sections/Testimonials";
 import { Philosophy } from "./sections/Philosophy";
-import { Contact } from "./sections/Contact";
-import { Footer } from "./sections/Footer";
+import { Quote } from "./sections/Quote";
+import { SiteFooter } from "./sections/SiteFooter";
 import { useIsakAnimations } from "@/hooks/useIsakAnimations";
 import { useClock } from "@/hooks/useClock";
 import { useHeadlineRotate } from "@/hooks/useHeadlineRotate";
@@ -112,6 +113,8 @@ export function HomeShell({
 
                 <UserSidebar variant={variant} />
 
+                <ContactCard />
+
                 <div className="main-content">
                     <div className="container">
                         <div className="row">
@@ -125,13 +128,15 @@ export function HomeShell({
                                     <Tech />
                                     <Testimonials />
                                     <Philosophy />
-                                    <Contact />
-                                    <Footer />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Outside the offset content column so both span the page. */}
+                <Quote />
+                <SiteFooter />
             </main>
         </>
     );
