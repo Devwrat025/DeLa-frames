@@ -22,7 +22,7 @@ export const services: Service[] = [
       "I own end-to-end UX for enterprise B2B, B2C, and SaaS products, from requirement analysis and information architecture through wireframes, high-fidelity UI, and usability testing.",
     tags: ["Interaction Design", "Design Systems", "Usability Testing"],
     video: "/assets/videos/services/service-1.mp4",
-    poster: "/assets/images/section/service-1.jpg",
+    poster: "/assets/images/section/service-ux.jpg",
   },
   {
     id: "service-2",
@@ -31,7 +31,7 @@ export const services: Service[] = [
       "I build Claude-powered design automation using custom Skills, Agents, and MCP integrations with Figma and Freepik, cutting design cycles from days to hours and eliminating repetitive production work.",
     tags: ["Claude Skills & Agents", "Prompt Engineering", "Agentic UX"],
     video: "/assets/videos/services/service-2.mp4",
-    poster: "/assets/images/section/service-3.jpg",
+    poster: "/assets/images/section/service-ai.jpg",
   },
   {
     id: "service-3",
@@ -40,6 +40,6 @@ export const services: Service[] = [
       "I craft scalable component libraries and design tokens, and partner closely with engineering for zero-friction, API-aware handoff across RBAC and multi-persona platforms.",
     tags: ["Design Tokens", "Component Libraries", "Dev Handoff"],
     video: "/assets/videos/services/service-3.mp4",
-    poster: "/assets/images/section/service-5.jpg",
+    poster: "/assets/images/section/service-systems.jpg",
   },
 ];
