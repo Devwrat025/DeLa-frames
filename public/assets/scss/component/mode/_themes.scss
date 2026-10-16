@@ -427,6 +427,15 @@
             );
     }
 
+    // The availability pill sits over a photo, so it needs a dark scrim here
+    // rather than the literal white surface (--white is not remapped).
+    .sidebar-user .user-image .meta-left .avaiable-dot {
+        background-color: rgba(0, 0, 0, 0.56);
+        border: 1px solid var(--white-8);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
     .contact-card .contact-card-inner,
     .service-media .service-media-inner {
         background: linear-gradient(

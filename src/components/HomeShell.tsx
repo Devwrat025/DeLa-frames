@@ -23,7 +23,6 @@ import { Philosophy } from "./sections/Philosophy";
 import { Quote } from "./sections/Quote";
 import { SiteFooter } from "./sections/SiteFooter";
 import { useIsakAnimations } from "@/hooks/useIsakAnimations";
-import { useClock } from "@/hooks/useClock";
 import { useHeadlineRotate } from "@/hooks/useHeadlineRotate";
 import { useInfiniteSlide } from "@/hooks/useInfiniteSlide";
 import { useBodyThemeClass } from "@/hooks/useBodyThemeClass";
@@ -64,7 +63,6 @@ export function HomeShell({
         };
     }, [bodyClass]);
 
-    useClock();
     useInfiniteSlide();
     useHeadlineRotate();
     useIsakAnimations();
@@ -104,12 +102,12 @@ export function HomeShell({
 
             {showMobileMenu && <MobileMenu />}
 
-            {headerOutsideMain && <HeaderClock variant={variant} />}
+            {headerOutsideMain && <HeaderClock />}
 
             <DesktopSidebar positionClass={sidebarPositionClass} />
 
             <main id="wrapper">
-                {!headerOutsideMain && <HeaderClock variant={variant} />}
+                {!headerOutsideMain && <HeaderClock />}
 
                 <UserSidebar variant={variant} />
 

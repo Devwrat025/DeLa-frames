@@ -872,3 +872,35 @@
     }
 }
 
+
+/* Vertical availability label on the profile card.
+
+   The artwork behind it (vector-user.svg) is a fixed 32x227 box whose path
+   only paints from roughly y=56 to y=170, a visible band of about 114px,
+   while the label itself is 180px tall. The label therefore always ran past
+   both ends of the band. On the dark theme the overflow lands on a dark photo
+   and goes unnoticed; on the light theme the white band stops and the dark
+   text spills onto the dark photo, which reads as the text being cut off.
+
+   So the band is drawn in CSS from the label's own size instead, which also
+   survives browser zoom or a larger base font. */
+.sidebar-user .user-image .meta-left {
+    .text-vertical {
+        white-space: nowrap;
+    }
+
+    // Replaced by the CSS pill below.
+    .bg-item-svg {
+        display: none;
+    }
+
+    .avaiable-dot {
+        position: relative;
+        inset: auto;
+        padding: 18px 7px;
+        background-color: var(--white);
+        // Flush against the photo's left edge, rounded on the inner side.
+        border-radius: 0 999px 999px 0;
+        box-shadow: var(--shadow-2);
+    }
+}
