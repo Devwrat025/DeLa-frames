@@ -19,7 +19,7 @@ export const services: Service[] = [
     id: "service-1",
     title: "Enterprise UX & Product Design",
     description:
-      "I own end-to-end UX for enterprise B2B, B2C, and SaaS products—from requirement analysis and information architecture through wireframes, high-fidelity UI, and usability testing.",
+      "I own end-to-end UX for enterprise B2B, B2C, and SaaS products, from requirement analysis and information architecture through wireframes, high-fidelity UI, and usability testing.",
     tags: ["Interaction Design", "Design Systems", "Usability Testing"],
     video: "/assets/videos/services/service-1.mp4",
     poster: "/assets/images/section/service-1.jpg",
@@ -28,7 +28,7 @@ export const services: Service[] = [
     id: "service-2",
     title: "AI-Native Design Workflows",
     description:
-      "I build Claude-powered design automation using custom Skills, Agents, and MCP integrations with Figma and Freepik—cutting design cycles from days to hours and eliminating repetitive production work.",
+      "I build Claude-powered design automation using custom Skills, Agents, and MCP integrations with Figma and Freepik, cutting design cycles from days to hours and eliminating repetitive production work.",
     tags: ["Claude Skills & Agents", "Prompt Engineering", "Agentic UX"],
     video: "/assets/videos/services/service-2.mp4",
     poster: "/assets/images/section/service-3.jpg",

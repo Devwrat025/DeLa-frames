@@ -11,10 +11,10 @@ export function Philosophy() {
       </h4>
       <p className="s-desc text-black-56 scrolling-effect effectTop">
         Like a photographer who sees the shot before lifting the camera, I frame every product
-        <br className="d-none d-lg-block" /> decision with intention, precision, and care&mdash;that&apos;s the idea behind
+        <br className="d-none d-lg-block" /> decision with intention, precision, and care. That&apos;s the idea behind
         <br className="d-none d-lg-block" /> DeLa Frames, the practice behind this portfolio. <br />
         <br />
-        It&apos;s the discipline I bring to every problem I&apos;m handed&mdash;research, systems
+        It&apos;s the discipline I bring to every problem I&apos;m handed: research, systems
         <br className="d-none d-lg-block" /> thinking, AI-native workflows, and the small details that make an
         <br className="d-none d-lg-block" /> interface feel considered rather than assembled.
       </p>

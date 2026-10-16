@@ -16,7 +16,7 @@ export function About() {
         I&apos;m a Senior UI/UX Designer with 5+ years delivering enterprise B2B, B2C, and SaaS products
         <br className="d-none d-lg-block" /> across HR tech, legal, operations, and nonprofit domains. <br />
         <br />
-        I pioneer AI-native design—building Claude-powered automation pipelines that turn complex <br className="d-none d-lg-block" />
+        I pioneer AI-native design, building Claude-powered automation pipelines that turn complex <br className="d-none d-lg-block" />
         business requirements into design systems, RBAC-aware platforms, and zero-friction dev handoff.
       </p>
       <ul className="award-list">

@@ -12,7 +12,7 @@ export type Work = {
 
 export const works: Work[] = [
   {
-    title: "CDG.io — Enterprise UX Redesign",
+    title: "CDG.io: Enterprise UX Redesign",
     description:
       "End-to-end UX redesign for a B2B SaaS platform: full audit, IA, and high-fidelity UI that generated $2.5M+ in revenue opportunity, a 30% conversion lift, and 45% engagement growth within 6 months of launch.",
     year: "2025",
@@ -23,7 +23,7 @@ export const works: Work[] = [
     caseStudySlug: "cdg",
   },
   {
-    title: "BGClub.org — Nonprofit Platform Redesign",
+    title: "BGClub.org: Nonprofit Platform Redesign",
     description:
       "Full UX audit and competitor analysis for a Silicon Valley-based nonprofit; remapped information architecture and navigation, and delivered a new UI reflecting the organisation's brand identity.",
     year: "2024",
@@ -34,9 +34,9 @@ export const works: Work[] = [
     caseStudySlug: "bgcsv",
   },
   {
-    title: "PositioningPoint — B2B SaaS Homepage Redesign",
+    title: "PositioningPoint: B2B SaaS Homepage Redesign",
     description:
-      "Audited a positioning consultancy's homepage against the Nielsen Norman usability heuristics, found six violations, and rebuilt the page around how a skeptical founder actually evaluates a consultant—pain, then solution, then proof, then process, then action.",
+      "Audited a positioning consultancy's homepage against the Nielsen Norman usability heuristics, found six violations, and rebuilt the page around how a skeptical founder actually evaluates a consultant: pain, then solution, then proof, then process, then action.",
     year: "2025",
     role: "UX/UI Designer",
     tags: ["Heuristic Audit", "Information Architecture", "Figma"],

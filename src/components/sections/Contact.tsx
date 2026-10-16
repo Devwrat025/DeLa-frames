@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { profile } from "@/data/profile";
 
-// FormSubmit relays the form straight to the inbox below — no backend needed,
+// FormSubmit relays the form straight to the inbox below, no backend needed,
 // which keeps the site a pure static export. The /ajax/ endpoint returns JSON
 // instead of redirecting, so the visitor never leaves the page.
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`;
@@ -49,7 +49,7 @@ export function Contact() {
       <form className="form-contact" id="contactform" onSubmit={handleSubmit} noValidate>
         {status === "sent" && (
           <div className="flat-alert msg-success" style={{ marginBottom: 16 }}>
-            Thanks for reaching out — your message is on its way. I&rsquo;ll get back to you shortly.
+            Thanks for reaching out. Your message is on its way. I&rsquo;ll get back to you shortly.
           </div>
         )}
         {status === "error" && (

@@ -50,7 +50,7 @@ export function Work() {
                                     </div>
                                     {/* data-lenis-prevent is applied at runtime,
                                         only while this content actually
-                                        overflows — see useIsakAnimations. */}
+                                        overflows. See useIsakAnimations. */}
                                     <div className="content">
                                         <div className="content-top">
                                             {w.logo && (

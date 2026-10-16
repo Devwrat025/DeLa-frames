@@ -6,7 +6,7 @@ import { profile } from "@/data/profile";
 
 /**
  * Fills the left column for the stretch of page that would otherwise leave it
- * empty — Tech Stack through The DeLa Frames Philosophy. Handed over from the
+ * empty, from Tech Stack through The DeLa Frames Philosophy. Handed over from the
  * services panel above it, and released before the contact form itself.
  */
 export function ContactCard() {

@@ -269,7 +269,7 @@ export function useIsakAnimations() {
             // Which card owns the fixed left-hand panel is derived from live
             // geometry instead of per-card enter/leave triggers. The cards are
             // sticky, so they pile up at the same offset and several satisfy
-            // their trigger ranges at once — whichever fired last won, and a
+            // their trigger ranges at once, and whichever fired last won, and a
             // card leaving could clear the panel while another was still on
             // screen. Reading the front-most card on each scroll cannot drift.
             const wraps = works.map((work) =>
@@ -297,7 +297,7 @@ export function useIsakAnimations() {
 
             // Pointing at the panel should scroll the panel's own copy when
             // there is more of it than fits, but must not trap the page when
-            // everything is already visible — so the Lenis opt-out is applied
+            // everything is already visible, so the Lenis opt-out is applied
             // only while the content genuinely overflows.
             const syncPanelScrollLock = () => {
                 wraps.forEach((wrap) => {
@@ -322,8 +322,8 @@ export function useIsakAnimations() {
                 );
 
                 // Personal details belong to the top of the page only. Once
-                // the first work card reaches the line — i.e. once Education &
-                // Experience is behind us — they stay hidden for the rest of
+                // the first work card reaches the line, i.e. once Education &
+                // Experience is behind us, they stay hidden for the rest of
                 // the scroll, instead of reappearing after the work section.
                 sidebar.classList.toggle(
                     "active",

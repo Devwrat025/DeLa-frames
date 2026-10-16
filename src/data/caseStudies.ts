@@ -40,7 +40,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "cdg",
-    title: "Cyber Defense Group — Enterprise UX Redesign",
+    title: "Cyber Defense Group: Enterprise UX Redesign",
     client: "Cyber Defense Group (CDG)",
     role: "Senior UI Designer",
     year: "2025",
@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
     businessGoal:
       "Provide end-to-end security expertise through the world's best security technology, combined with trusted consulting experience and service excellence.",
     problemStatement:
-      "How might we strengthen the structure and improve the navigation and information architecture of the website so users have an intuitive experience—one that generates leads and increases CDG's customer base?",
+      "How might we strengthen the structure and improve the navigation and information architecture of the website so users have an intuitive experience, one that generates leads and increases CDG's customer base?",
     challenges: ["Visual Appeal", "Functionality", "Navigation"],
     phases: [
       {
@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Define",
         title: "Information architecture & brand color system",
         description:
-          "Converted the audit findings into a coherent site structure—restructuring navigation, defining a sitemap by service category, and refining the color system so it could carry visual hierarchy, not just brand identity.",
+          "Converted the audit findings into a coherent site structure: restructuring navigation, defining a sitemap by service category, and refining the color system so it could carry visual hierarchy, not just brand identity.",
         points: [
           "Conducted stakeholder interviews on service offerings and structure",
           "Redesigned the top-level navigation and full sitemap",
@@ -81,7 +81,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Design",
         title: "Wireframes, typography & functional patterns",
         description:
-          "Built low- to high-fidelity wireframes for every core page, paired Montserrat headlines with Nunito body copy, and designed the functional patterns—breadcrumbs, CTA placement, infographics—that the old site was missing.",
+          "Built low- to high-fidelity wireframes for every core page, paired Montserrat headlines with Nunito body copy, and designed the functional patterns the old site was missing: breadcrumbs, CTA placement, infographics.",
         points: [
           "Designed low- to high-fidelity pages for the full site",
           "Restructured the menu into clear, relatable categories",
@@ -132,18 +132,18 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "bgcsv",
-    title: "Boys & Girls Clubs of Silicon Valley — Nonprofit Platform Redesign",
+    title: "Boys & Girls Clubs of Silicon Valley: Nonprofit Platform Redesign",
     client: "Boys & Girls Clubs of Silicon Valley (BGCSV)",
     role: "Senior UI Designer",
     year: "2024",
     scope: ["UX Audit", "Information Architecture", "User Flows", "Brand"],
     heroImage: "/assets/images/case-studies/bgcsv-hero.jpg",
     summary:
-      "A redesign aimed at lifting engagement through streamlined navigation, refined graphics, and stronger page design—all built on the Boys & Girls Clubs brand palette. The site had to serve three audiences arriving with completely different intent: donors, parents, and volunteers.",
+      "A redesign aimed at lifting engagement through streamlined navigation, refined graphics, and stronger page design, all built on the Boys & Girls Clubs brand palette. The site had to serve three audiences arriving with completely different intent: donors, parents, and volunteers.",
     businessGoal:
-      "Highlight BGCSV's vision, mission, core beliefs, and community impact to raise awareness of what the organisation offers—deepening engagement with existing community members while expanding the member base.",
+      "Highlight BGCSV's vision, mission, core beliefs, and community impact to raise awareness of what the organisation offers, deepening engagement with existing community members while expanding the member base.",
     problemStatement:
-      "How might we strengthen the website's structure, improve navigation, and refine the information architecture to create an intuitive experience—one that boosts lead generation and grows BGCSV's community?",
+      "How might we strengthen the website's structure, improve navigation, and refine the information architecture to create an intuitive experience, one that boosts lead generation and grows BGCSV's community?",
     challenges: [
       "Catering to Diverse User Groups",
       "Enhanced User Journey",
@@ -228,14 +228,14 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "positioningpoint",
-    title: "PositioningPoint — B2B SaaS Homepage Redesign",
+    title: "PositioningPoint: B2B SaaS Homepage Redesign",
     client: "PositioningPoint (Silky Agarwal)",
     role: "UX Research · UI Design · IA",
     year: "2025",
     scope: ["Heuristic Evaluation", "Information Architecture", "Messaging", "Figma"],
     heroImage: "/assets/images/case-studies/pp-hero.jpg",
     summary:
-      "PositioningPoint is the consulting practice of Silky Agarwal, a B2B SaaS positioning and messaging specialist with 12+ years of experience who has advised challenger SaaS companies including Freshworks, Precoro, RippleHire, and NextBillion. The service was sharp and genuinely different—the homepage failed to show it. The right content already existed, but it sat in the wrong order, with the wrong emphasis, and without enough specificity.",
+      "PositioningPoint is the consulting practice of Silky Agarwal, a B2B SaaS positioning and messaging specialist with 12+ years of experience who has advised challenger SaaS companies including Freshworks, Precoro, RippleHire, and NextBillion. The service was sharp and genuinely different. The homepage failed to show it. The right content already existed, but it sat in the wrong order, with the wrong emphasis, and without enough specificity.",
     businessGoal:
       "Turn a homepage that explained a methodology into one that converts founder-CEOs of pre-scale B2B SaaS companies into booked intro calls.",
     problemStatement:
@@ -269,7 +269,7 @@ export const caseStudies: CaseStudy[] = [
         description:
           "Set the bar for what the redesigned page had to do before a single section was drawn.",
         points: [
-          "Make the value instantly clear—who it's for and what they gain, within five seconds",
+          "Make the value instantly clear: who it's for and what they gain, within five seconds",
           "Build a narrative funnel: pain, then solution, then proof, then process, then action",
           "Surface specificity: name the exact audience, problem, and outcome",
           "Earn trust progressively, so proof backs each claim as it is made",
@@ -279,7 +279,7 @@ export const caseStudies: CaseStudy[] = [
         label: "Restructure",
         title: "Rebuilding the page flow",
         description:
-          "The most impactful decision was not visual, it was structural. We rethought the entire content sequence to mirror how a skeptical founder actually evaluates a service provider—methodology visuals and framework diagrams now come after testimonials and proof, not before.",
+          "The most impactful decision was not visual, it was structural. We rethought the entire content sequence to mirror how a skeptical founder actually evaluates a service provider: methodology visuals and framework diagrams now come after testimonials and proof, not before.",
         points: [
           "Rewrote the hero around the outcome, in the founder's own vocabulary",
           "Added a pain-framing section so visitors recognise the problem before the pitch",
@@ -322,7 +322,7 @@ export const caseStudies: CaseStudy[] = [
       { name: "Light Surface", hex: "#EEEEEE" },
     ],
     outcome:
-      "The core challenge was never aesthetic. The original site had strong content—the real problem was that the content was not structured to convert. The redesign meant understanding how a skeptical, analytical SaaS founder evaluates a consultant, and building the page to match that exact mental sequence.",
+      "The core challenge was never aesthetic. The original site had strong content. The real problem was that the content was not structured to convert. The redesign meant understanding how a skeptical, analytical SaaS founder evaluates a consultant, and building the page to match that exact mental sequence.",
   },
 ];
 

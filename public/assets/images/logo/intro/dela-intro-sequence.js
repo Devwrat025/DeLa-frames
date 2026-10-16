@@ -1,4 +1,4 @@
-/* DeLa Frames — brand intro card. 458x586, 7.5s loop.
+/* DeLa Frames - brand intro card. 458x586, 7.5s loop.
    Four exposures. Nothing drifts: the shutter closes, and what changes,
    changes behind the blades. One render(ctx, t) drives the card and the export. */
 (function (root) {
